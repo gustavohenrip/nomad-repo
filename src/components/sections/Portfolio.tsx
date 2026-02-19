@@ -14,6 +14,7 @@ interface Project {
   url: string;
   stack: string;
   year: string;
+  isDemo?: boolean;
 }
 
 const PROJECTS: Project[] = [
@@ -23,6 +24,21 @@ const PROJECTS: Project[] = [
     url: 'https://nomadsolucoes.me/rsat/',
     stack: 'React / TypeScript / Tailwind / Vite',
     year: '2026',
+  },
+  {
+    id: 2,
+    name: 'Guidolinluz',
+    url: 'https://nomadsolucoes.me/guidolinluz/',
+    stack: 'Next.js / TypeScript / Tailwind',
+    year: '2026',
+  },
+  {
+    id: 3,
+    name: 'Pristine Dental',
+    url: 'https://nomadsolucoes.me/pristine/',
+    stack: 'React / Astro / Tailwind / Three.js',
+    year: '2026',
+    isDemo: true,
   },
 ];
 
@@ -104,17 +120,37 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
             background: 'rgba(255,255,255,0.5)',
           }}
         >
-          <span
-            style={{
-              fontFamily: 'var(--font-heading)',
-              fontWeight: 600,
-              fontSize: '0.95rem',
-              color: 'var(--color-text-primary)',
-              letterSpacing: '-0.01em',
-            }}
-          >
-            {project.name}
-          </span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <span
+              style={{
+                fontFamily: 'var(--font-heading)',
+                fontWeight: 600,
+                fontSize: '0.95rem',
+                color: 'var(--color-text-primary)',
+                letterSpacing: '-0.01em',
+              }}
+            >
+              {project.name}
+            </span>
+            {project.isDemo && (
+              <span
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '0.6rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  color: '#B45309',
+                  background: 'rgba(180,83,9,0.08)',
+                  border: '1px solid rgba(180,83,9,0.18)',
+                  borderRadius: '999px',
+                  padding: '0.2rem 0.6rem',
+                }}
+              >
+                Projeto Fictício
+              </span>
+            )}
+          </div>
           <button
             onClick={handleClose}
             style={{
@@ -520,21 +556,48 @@ export default function Portfolio() {
                   {String(i + 1).padStart(2, '0')}
                 </span>
 
-                <span
+                <div
                   style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: 'clamp(1.8rem, 4vw, 3.5rem)',
-                    fontWeight: 600,
-                    color: '#0A0A0A',
-                    letterSpacing: '-0.02em',
-                    lineHeight: 1.1,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '1rem',
                     flex: 1,
                     transition: 'transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)',
                     transform: hoveredId === project.id ? 'translateX(1rem)' : 'translateX(0)',
                   }}
                 >
-                  {project.name}
-                </span>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-heading)',
+                      fontSize: 'clamp(1.8rem, 4vw, 3.5rem)',
+                      fontWeight: 600,
+                      color: '#0A0A0A',
+                      letterSpacing: '-0.02em',
+                      lineHeight: 1.1,
+                    }}
+                  >
+                    {project.name}
+                  </span>
+                  {project.isDemo && isDesktop && (
+                    <span
+                      style={{
+                        fontFamily: 'var(--font-body)',
+                        fontSize: '0.6rem',
+                        fontWeight: 600,
+                        letterSpacing: '0.15em',
+                        textTransform: 'uppercase',
+                        color: '#B45309',
+                        background: 'rgba(180,83,9,0.08)',
+                        border: '1px solid rgba(180,83,9,0.18)',
+                        borderRadius: '999px',
+                        padding: '0.25rem 0.75rem',
+                        flexShrink: 0,
+                      }}
+                    >
+                      Fictício
+                    </span>
+                  )}
+                </div>
 
                 <div
                   style={{
