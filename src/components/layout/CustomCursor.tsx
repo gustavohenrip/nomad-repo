@@ -40,6 +40,16 @@ export default function CustomCursor() {
       gsap.to(dot, { scale: 1, duration: 0.3 });
     };
 
+    const onIframeEnter = () => {
+      gsap.to(dot, { opacity: 0, scale: 0, duration: 0.15 });
+      gsap.to(ring, { opacity: 0, duration: 0.15 });
+    };
+
+    const onIframeLeave = () => {
+      gsap.to(dot, { opacity: 1, scale: 1, duration: 0.2 });
+      gsap.to(ring, { opacity: 0.5, scale: 1, duration: 0.2 });
+    };
+
     document.addEventListener('mousemove', onMouseMove);
 
     const interactiveSelectors = 'a, button, [data-cursor-expand], input, textarea';
@@ -49,6 +59,10 @@ export default function CustomCursor() {
       els.forEach(el => {
         el.addEventListener('mouseenter', onEnter);
         el.addEventListener('mouseleave', onLeave);
+      });
+      document.querySelectorAll('iframe').forEach(iframe => {
+        iframe.addEventListener('mouseenter', onIframeEnter);
+        iframe.addEventListener('mouseleave', onIframeLeave);
       });
     };
 

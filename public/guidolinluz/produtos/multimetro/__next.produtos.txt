@@ -1,4 +1,4 @@
 1:"$Sreact.fragment"
 2:I[84758,["/guidolinluz/_next/static/chunks/a4c32e65d739dab6.js","/guidolinluz/_next/static/chunks/fcaa938d7d393567.js"],"default"]
 3:I[84529,["/guidolinluz/_next/static/chunks/a4c32e65d739dab6.js","/guidolinluz/_next/static/chunks/fcaa938d7d393567.js"],"default"]
-0:{"buildId":"v8-NXYQNojNa8HerisWei","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"LqEPV71IbjwrKSRGxVOwO","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
