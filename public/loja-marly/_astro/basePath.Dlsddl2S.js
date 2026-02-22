@@ -1,0 +1,1 @@
+const r="/loja-marly";function n(t){if(t.startsWith("http")||t.startsWith("mailto")||t.startsWith("tel"))return t;const s=t.startsWith("/")?t:`/${t}`;return`${r}${s}`}function e(t){const s=t.startsWith("/")?t:`/${t}`;return`${r}${s}`}export{e as a,n as h};
