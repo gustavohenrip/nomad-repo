@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[22016,["/mairing/_next/static/chunks/0l1q8l5eu0lu_.js","/mairing/_next/static/chunks/0d3shmwh5_nmn.js"],""]
+3:I[97367,["/mairing/_next/static/chunks/0l1q8l5eu0lu_.js","/mairing/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"page-frame","children":["$","div",null,{"className":"page-shell","children":["$","section",null,{"className":"empty-state premium-reveal","children":[["$","strong",null,{"children":"Esta página não está disponível."}],["$","p",null,{"children":"O conteúdo solicitado pode ter sido removido, alterado ou ainda não fazer parte desta versão do site."}],["$","div",null,{"className":"page-banner__actions","style":{"justifyContent":"center"},"children":[["$","$L2",null,{"href":"/","className":"button-primary","children":"Voltar para a home"}],["$","$L2",null,{"href":"/estoque","className":"button-secondary","children":"Ver estoque"}]]}]]}]}]}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"sOz_YGXtqIrzdRNpS_9kj"}
+5:null

@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[22016,["/mairing/_next/static/chunks/0l1q8l5eu0lu_.js","/mairing/_next/static/chunks/0d3shmwh5_nmn.js"],""]
+3:I[97367,["/mairing/_next/static/chunks/0l1q8l5eu0lu_.js","/mairing/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"page-frame","children":["$","div",null,{"className":"page-shell","children":["$","section",null,{"className":"empty-state premium-reveal","children":[["$","h1",null,{"className":"sr-only","children":"Favoritos"}],["$","strong",null,{"children":"Nenhum favorito salvo no momento."}],["$","p",null,{"children":"Explore o estoque e siga para o atendimento quando encontrar um veículo de interesse."}],["$","div",null,{"className":"page-banner__actions","style":{"justifyContent":"center"},"children":[["$","$L2",null,{"href":"/estoque","className":"button-primary","children":"Explorar estoque"}],["$","$L2",null,{"href":"/contato","className":"button-secondary","children":"Falar com a equipe"}]]}]]}]}]}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"sOz_YGXtqIrzdRNpS_9kj"}
+5:null
