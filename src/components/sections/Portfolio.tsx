@@ -363,6 +363,14 @@ export default function Portfolio() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
   const isDesktop = useMediaQuery('(min-width: 768px)');
 
+  const handleProjectClick = (project: Project) => {
+    if (!isDesktop) {
+      window.open(project.url, '_blank', 'noopener,noreferrer');
+    } else {
+      setActiveProject(project);
+    }
+  };
+
   useGSAP(() => {
     if (!sectionRef.current) return;
 
@@ -463,18 +471,20 @@ export default function Portfolio() {
             pointerEvents: 'none',
           }}
         >
-          <WaveCanvas />
-          <div
-            style={{
-              position: 'absolute',
-              inset: '-200%',
-              width: '500%',
-              height: '500%',
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-              animation: 'grain 0.35s steps(1) infinite',
-              opacity: 0.055,
-            }}
-          />
+          {isDesktop && <WaveCanvas />}
+          {isDesktop && (
+            <div
+              style={{
+                position: 'absolute',
+                inset: '-200%',
+                width: '500%',
+                height: '500%',
+                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+                animation: 'grain 0.35s steps(1) infinite',
+                opacity: 0.055,
+              }}
+            />
+          )}
         </div>
 
         <div style={{ maxWidth: '80rem', margin: '0 auto', padding: '0 1.5rem', position: 'relative', zIndex: 2 }}>
@@ -531,7 +541,7 @@ export default function Portfolio() {
             <div key={project.id}>
               <div
                 className="portfolio-item"
-                onClick={() => setActiveProject(project)}
+                onClick={() => handleProjectClick(project)}
                 onMouseEnter={() => setHoveredId(project.id)}
                 onMouseLeave={() => setHoveredId(null)}
                 style={{

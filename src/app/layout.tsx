@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={`${spaceGrotesk.variable} ${inter.variable}`}>
-      <body style={{ cursor: 'none' }}>
+      <body>
         <SmoothScroll>
           <Preloader />
           <CustomCursor />

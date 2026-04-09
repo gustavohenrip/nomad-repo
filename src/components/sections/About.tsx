@@ -79,12 +79,12 @@ export default function About() {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(12, minmax(0, 1fr))',
-            gap: 'clamp(3rem, 5vw, 5rem)',
+            gap: 'clamp(2rem, 5vw, 5rem)',
             alignItems: 'center',
           }}
-          className="grid-cols-1 lg:grid-cols-12"
+          className="about-grid"
         >
-          <div style={{ gridColumn: 'span 5' }}>
+          <div className="about-col-heading">
             <h2
               ref={headingRef}
               aria-label="Liberdade para criar."
@@ -111,8 +111,8 @@ export default function About() {
           </div>
 
           <div
+            className="about-col-content"
             style={{
-              gridColumn: 'span 7',
               display: 'flex',
               flexDirection: 'column',
               gap: '2rem',

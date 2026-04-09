@@ -115,15 +115,27 @@ section {
 .orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  animation: float-orb 20s ease-in-out infinite;
+  filter: blur(60px);
   pointer-events: none;
-  will-change: transform;
+}
+
+@media (hover: hover) {
+  .orb {
+    filter: blur(80px);
+    animation: float-orb 20s ease-in-out infinite;
+    will-change: transform;
+  }
 }
 
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.3; }
+}
+
+@media (hover: hover) {
+  body {
+    cursor: none;
+  }
 }
 
 @media (hover: none) {
@@ -160,6 +172,78 @@ section {
   perspective: 1000px;
 }
 
+.about-col-heading {
+  grid-column: span 12;
+}
+
+.about-col-content {
+  grid-column: span 12;
+}
+
+.contact-col-text {
+  grid-column: span 12;
+}
+
+.contact-col-form {
+  grid-column: span 12;
+}
+
+.process-step-left,
+.process-step-right {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.process-dot {
+  display: none;
+}
+
+.process-line {
+  display: none;
+}
+
+.process-card {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .about-col-heading {
+    grid-column: span 5;
+  }
+
+  .about-col-content {
+    grid-column: span 7;
+  }
+
+  .contact-col-text {
+    grid-column: span 6;
+  }
+
+  .contact-col-form {
+    grid-column: span 6;
+  }
+
+  .process-step-left {
+    justify-content: flex-start;
+  }
+
+  .process-step-right {
+    justify-content: flex-end;
+  }
+
+  .process-dot {
+    display: block;
+  }
+
+  .process-line {
+    display: block;
+  }
+
+  .process-card {
+    width: calc(50% - 2.5rem);
+  }
+}
+
 @keyframes scroll-indicator {
   0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
   40% { transform: scaleY(1); opacity: 1; }
@@ -191,23 +275,23 @@ section {
   position: relative;
 }
 
-.grain-section::after {
-  content: '';
-  position: fixed;
-  inset: -200%;
-  width: 500%;
-  height: 500%;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  animation: grain 0.35s steps(1) infinite;
-  opacity: 0.055;
-  pointer-events: none;
-  z-index: 2;
+@media (hover: hover) {
+  .grain-section::after {
+    content: '';
+    position: fixed;
+    inset: -200%;
+    width: 500%;
+    height: 500%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation: grain 0.35s steps(1) infinite;
+    opacity: 0.055;
+    pointer-events: none;
+    z-index: 2;
+  }
 }
 
 .nav-glass {
   background: rgba(248, 246, 243, 0.28);
-  backdrop-filter: blur(48px) saturate(2.8) brightness(1.1);
-  -webkit-backdrop-filter: blur(48px) saturate(2.8) brightness(1.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow:
     0 0 0 0.5px rgba(255, 255, 255, 0.7) inset,
@@ -216,14 +300,26 @@ section {
 }
 
 .nav-glass-scrolled {
-  background: rgba(248, 246, 243, 0.55);
-  backdrop-filter: blur(52px) saturate(3) brightness(1.08);
-  -webkit-backdrop-filter: blur(52px) saturate(3) brightness(1.08);
+  background: rgba(248, 246, 243, 0.88);
   border-bottom: 1px solid rgba(255, 255, 255, 0.6);
   box-shadow:
     0 0 0 0.5px rgba(255, 255, 255, 0.8) inset,
     0 8px 48px rgba(0, 0, 0, 0.06),
     0 1px 0 rgba(255, 255, 255, 1) inset;
+}
+
+@media (hover: hover) {
+  .nav-glass {
+    backdrop-filter: blur(48px) saturate(2.8) brightness(1.1);
+    -webkit-backdrop-filter: blur(48px) saturate(2.8) brightness(1.1);
+    background: rgba(248, 246, 243, 0.28);
+  }
+
+  .nav-glass-scrolled {
+    backdrop-filter: blur(52px) saturate(3) brightness(1.08);
+    -webkit-backdrop-filter: blur(52px) saturate(3) brightness(1.08);
+    background: rgba(248, 246, 243, 0.55);
+  }
 }
 
 @keyframes wave-blob-1 {

@@ -26,6 +26,7 @@ export default function Navigation() {
   }, []);
 
   useEffect(() => {
+    if (window.matchMedia('(hover: none)').matches) return;
     let t = 0;
     const tick = () => {
       if (!turbulenceRef.current) return;

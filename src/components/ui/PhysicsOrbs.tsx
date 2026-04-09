@@ -48,9 +48,11 @@ export default function PhysicsOrbs() {
     let orbs: Orb[] = [];
     let t = 0;
 
+    const isTouchDevice = window.matchMedia('(hover: none)').matches;
+
     const initOrbs = (w: number, h: number) => {
       orbs = [];
-      const count = 22;
+      const count = isTouchDevice ? 8 : 22;
       for (let i = 0; i < count; i++) {
         const color = COLORS[i % COLORS.length];
         const bx = w * 0.06 + Math.random() * w * 0.88;
@@ -100,8 +102,10 @@ export default function PhysicsOrbs() {
       mouse.y = -2000;
     };
 
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('mouseleave', onMouseLeave);
+    if (!isTouchDevice) {
+      window.addEventListener('mousemove', onMouseMove);
+      window.addEventListener('mouseleave', onMouseLeave);
+    }
 
     const draw = () => {
       if (!canvas || !ctx) return;
@@ -180,8 +184,10 @@ export default function PhysicsOrbs() {
     return () => {
       cancelAnimationFrame(animId);
       ro.disconnect();
-      window.removeEventListener('mousemove', onMouseMove);
-      window.removeEventListener('mouseleave', onMouseLeave);
+      if (!isTouchDevice) {
+        window.removeEventListener('mousemove', onMouseMove);
+        window.removeEventListener('mouseleave', onMouseLeave);
+      }
     };
   }, []);
 

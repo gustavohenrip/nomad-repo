@@ -1,13 +1,19 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 
 export default function CustomCursor() {
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
+  const [isTouch, setIsTouch] = useState(true);
 
   useEffect(() => {
+    setIsTouch(window.matchMedia('(hover: none)').matches);
+  }, []);
+
+  useEffect(() => {
+    if (isTouch) return;
     if (!dotRef.current || !ringRef.current) return;
 
     const dot = dotRef.current;
@@ -75,7 +81,9 @@ export default function CustomCursor() {
       document.removeEventListener('mousemove', onMouseMove);
       observer.disconnect();
     };
-  }, []);
+  }, [isTouch]);
+
+  if (isTouch) return null;
 
   return (
     <>

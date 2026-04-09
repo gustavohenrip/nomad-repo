@@ -104,6 +104,7 @@ export default function Process() {
         </RevealOnScroll>
 
         <div
+          className="process-timeline"
           style={{
             position: 'relative',
             maxWidth: '860px',
@@ -112,6 +113,7 @@ export default function Process() {
         >
           <div
             ref={lineRef}
+            className="process-line"
             style={{
               position: 'absolute',
               left: '50%',
@@ -126,15 +128,14 @@ export default function Process() {
           {PROCESS_STEPS.map((step, i) => (
             <div
               key={step.number}
-              className="process-step"
+              className={`process-step process-step-${i % 2 === 0 ? 'left' : 'right'}`}
               style={{
-                display: 'flex',
-                justifyContent: i % 2 === 0 ? 'flex-start' : 'flex-end',
-                paddingBottom: 'clamp(3rem, 6vw, 5.5rem)',
+                paddingBottom: 'clamp(2rem, 6vw, 5.5rem)',
                 position: 'relative',
               }}
             >
               <div
+                className="process-dot"
                 style={{
                   position: 'absolute',
                   left: '50%',
@@ -151,8 +152,8 @@ export default function Process() {
 
               <GlassCard
                 variant="default"
+                className="process-card"
                 style={{
-                  width: 'calc(50% - 2.5rem)',
                   padding: 'clamp(1.5rem, 3vw, 2.5rem)',
                 }}
               >

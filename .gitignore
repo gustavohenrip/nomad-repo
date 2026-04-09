@@ -17,12 +17,18 @@
 /.next/
 /out/
 
+
 # production
 /build
 
 # misc
 .DS_Store
 *.pem
+
+#other things
+.claude
+CLAUDE.md
+.playwright-mcp
 
 # debug
 npm-debug.log*

@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import GlassCard from '@/components/ui/GlassCard';
 import { SERVICES } from '@/lib/constants';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -13,9 +14,11 @@ export default function Services() {
   const sectionRef = useRef<HTMLElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
+  const isDesktop = useMediaQuery('(min-width: 768px)');
 
   useGSAP(() => {
     if (!cardsRef.current || !sectionRef.current) return;
+    if (!isDesktop) return;
 
     const cards = cardsRef.current;
 
@@ -54,7 +57,128 @@ export default function Services() {
         toggleActions: 'play none none none',
       },
     });
-  }, { scope: sectionRef });
+  }, { scope: sectionRef, dependencies: [isDesktop] });
+
+  const serviceCardContent = (service: typeof SERVICES[0]) => (
+    <>
+      <div>
+        <span
+          style={{
+            display: 'block',
+            fontFamily: 'var(--font-heading)',
+            fontSize: isDesktop ? 'clamp(3rem, 5vw, 5rem)' : '3rem',
+            fontWeight: 300,
+            color: 'rgba(91, 141, 191, 0.25)',
+            lineHeight: 1,
+            marginBottom: '1.5rem',
+            letterSpacing: '-0.02em',
+          }}
+        >
+          {service.number}
+        </span>
+        <h3
+          style={{
+            fontFamily: 'var(--font-heading)',
+            fontSize: 'clamp(1.5rem, 2.2vw, 2rem)',
+            fontWeight: 700,
+            color: 'var(--color-text-primary)',
+            letterSpacing: '-0.02em',
+            marginBottom: '0.75rem',
+          }}
+        >
+          {service.title}
+        </h3>
+        <p
+          style={{
+            fontFamily: 'var(--font-body)',
+            fontSize: 'clamp(0.95rem, 1.2vw, 1.05rem)',
+            color: 'var(--color-accent-deep)',
+            fontWeight: 500,
+            marginBottom: '1.25rem',
+            lineHeight: 1.5,
+          }}
+        >
+          {service.description}
+        </p>
+        <p
+          style={{
+            fontFamily: 'var(--font-body)',
+            fontSize: 'clamp(0.85rem, 1vw, 0.95rem)',
+            color: 'var(--color-text-secondary)',
+            lineHeight: 1.75,
+          }}
+        >
+          {service.detail}
+        </p>
+      </div>
+      <div
+        style={{
+          width: '36px',
+          height: '2px',
+          background: 'linear-gradient(to right, var(--color-accent), var(--color-accent-deep))',
+          marginTop: '1.5rem',
+        }}
+      />
+    </>
+  );
+
+  if (!isDesktop) {
+    return (
+      <section
+        id="servicos"
+        style={{
+          background: 'linear-gradient(155deg, var(--color-bg-primary) 0%, var(--color-accent-light) 100%)',
+          padding: 'clamp(4rem, 10vw, 8rem) 0',
+        }}
+      >
+        <div style={{ maxWidth: '80rem', margin: '0 auto', padding: '0 1.5rem' }}>
+          <span
+            style={{
+              display: 'block',
+              fontFamily: 'var(--font-body)',
+              fontSize: '0.7rem',
+              letterSpacing: '0.25em',
+              textTransform: 'uppercase',
+              color: 'var(--color-accent)',
+              marginBottom: '1rem',
+              fontWeight: 500,
+            }}
+          >
+            Serviços
+          </span>
+          <h2
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'clamp(2rem, 6vw, 3rem)',
+              fontWeight: 700,
+              color: 'var(--color-text-primary)',
+              lineHeight: 1.1,
+              letterSpacing: '-0.02em',
+              marginBottom: 'clamp(2rem, 6vw, 4rem)',
+            }}
+          >
+            O que fazemos.
+          </h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            {SERVICES.map((service) => (
+              <GlassCard
+                key={service.number}
+                variant="strong"
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  padding: '2rem',
+                }}
+              >
+                {serviceCardContent(service)}
+              </GlassCard>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section
@@ -155,64 +279,7 @@ export default function Services() {
                 padding: 'clamp(1.75rem, 3vw, 2.75rem)',
               }}
             >
-              <div>
-                <span
-                  style={{
-                    display: 'block',
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: 'clamp(3rem, 5vw, 5rem)',
-                    fontWeight: 300,
-                    color: 'rgba(91, 141, 191, 0.25)',
-                    lineHeight: 1,
-                    marginBottom: '1.5rem',
-                    letterSpacing: '-0.02em',
-                  }}
-                >
-                  {service.number}
-                </span>
-                <h3
-                  style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: 'clamp(1.5rem, 2.2vw, 2rem)',
-                    fontWeight: 700,
-                    color: 'var(--color-text-primary)',
-                    letterSpacing: '-0.02em',
-                    marginBottom: '0.75rem',
-                  }}
-                >
-                  {service.title}
-                </h3>
-                <p
-                  style={{
-                    fontFamily: 'var(--font-body)',
-                    fontSize: 'clamp(0.95rem, 1.2vw, 1.05rem)',
-                    color: 'var(--color-accent-deep)',
-                    fontWeight: 500,
-                    marginBottom: '1.25rem',
-                    lineHeight: 1.5,
-                  }}
-                >
-                  {service.description}
-                </p>
-                <p
-                  style={{
-                    fontFamily: 'var(--font-body)',
-                    fontSize: 'clamp(0.85rem, 1vw, 0.95rem)',
-                    color: 'var(--color-text-secondary)',
-                    lineHeight: 1.75,
-                  }}
-                >
-                  {service.detail}
-                </p>
-              </div>
-              <div
-                style={{
-                  width: '36px',
-                  height: '2px',
-                  background: 'linear-gradient(to right, var(--color-accent), var(--color-accent-deep))',
-                  marginTop: '1.5rem',
-                }}
-              />
+              {serviceCardContent(service)}
             </GlassCard>
           ))}
         </div>

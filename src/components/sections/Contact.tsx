@@ -131,14 +131,15 @@ ${form.objetivo}`;
         }}
       >
         <div
+          className="contact-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(12, minmax(0, 1fr))',
-            gap: 'clamp(3rem, 5vw, 5rem)',
+            gap: 'clamp(2rem, 5vw, 5rem)',
             alignItems: 'center',
           }}
         >
-          <div style={{ gridColumn: 'span 6' }}>
+          <div className="contact-col-text">
             <span
               style={{
                 display: 'block',
@@ -190,7 +191,7 @@ ${form.objetivo}`;
             </p>
           </div>
 
-          <div style={{ gridColumn: 'span 6' }}>
+          <div className="contact-col-form">
             <RevealOnScroll delay={0.2} x={60} y={0}>
               <GlassCard
                 variant="default"
