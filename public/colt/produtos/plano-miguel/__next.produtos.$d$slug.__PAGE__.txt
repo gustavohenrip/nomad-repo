@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[65629,["/colt/_next/static/chunks/0f06_zsh~yel9.js","/colt/_next/static/chunks/09.bpavkh80ij.js","/colt/_next/static/chunks/0d3shmwh5_nmn.js","/colt/_next/static/chunks/06ch92qs.0qro.js","/colt/_next/static/chunks/0z15-k7cm~ojn.js"],"default"]
+3:I[97367,["/colt/_next/static/chunks/0f06_zsh~yel9.js","/colt/_next/static/chunks/09.bpavkh80ij.js","/colt/_next/static/chunks/0d3shmwh5_nmn.js","/colt/_next/static/chunks/06ch92qs.0qro.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"slug":"plano-miguel"}],[["$","script","script-0",{"src":"/colt/_next/static/chunks/0z15-k7cm~ojn.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"UQEq1mV6Jz0IYGlwDNqBB"}
+5:null
