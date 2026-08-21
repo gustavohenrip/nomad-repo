@@ -14,26 +14,36 @@ interface SmoothScrollProps {
 
 export default function SmoothScroll({ children }: SmoothScrollProps) {
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
+
+    // Native scrolling is substantially cheaper on touch devices and is the
+    // correct fallback for people who request reduced motion.
+    if (prefersReducedMotion || coarsePointer) {
+      setLenis(null);
+      return;
+    }
+
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      touchMultiplier: 2,
     });
 
     setLenis(lenis);
 
-    lenis.on('scroll', () => ScrollTrigger.update());
+    const onScroll = () => ScrollTrigger.update();
+    lenis.on('scroll', onScroll);
 
     const rafCallback = (time: number) => {
       lenis.raf(time * 1000);
     };
 
     gsap.ticker.add(rafCallback);
-    gsap.ticker.lagSmoothing(0);
 
     return () => {
       setLenis(null);
+      lenis.off('scroll', onScroll);
       lenis.destroy();
       gsap.ticker.remove(rafCallback);
     };
