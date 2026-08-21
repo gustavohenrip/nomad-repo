@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { spaceGrotesk, inter } from '@/lib/fonts';
 import SmoothScroll from '@/components/layout/SmoothScroll';
 import Navigation from '@/components/layout/Navigation';
-import Preloader from '@/components/layout/Preloader';
 import CustomCursor from '@/components/layout/CustomCursor';
 import './globals.css';
 
@@ -26,7 +25,6 @@ export default function RootLayout({
     <html lang="pt-BR" className={`${spaceGrotesk.variable} ${inter.variable}`}>
       <body>
         <SmoothScroll>
-          <Preloader />
           <CustomCursor />
           <Navigation />
           {children}
